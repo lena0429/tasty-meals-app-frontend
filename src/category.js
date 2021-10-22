@@ -1,27 +1,64 @@
+class Category {
 
-function fetchAllCategories() {
-    fetch("http://127.0.0.1:3000/categories")
-    .then(resp => resp.json())
-    .then(renderCategories)
+    static all = []
+    static categoryContainer = document.getElementById("category-container")
+
+    constructor({id, name, image}) {
+        this.id = id
+        this.name = name
+        this.image = image
+        this.active = false
+
+        this.element = document.createElement("button")
+        this.element = 
+
+        Category.all.push(this)
     }
-    
-    const catgeoryList = document.querySelector("#catgeory-list") 
-    
-    function renderCategories(categoryArray) {
-        categoryArray.forEach((category) => {
-            renderCategory(category)
-        })
+
+    meals(){
+        return Meal.all.filter((meal) => meal.categoryId == this.id)
     }
-    
-    function renderCategory(category) {
-      const categoryDiv = document.createElement("div")
-      categoryDiv.id = `category-div-${category['id']}`
-      categoryDiv.innerHTML = `
-            <div class="col-sm-3 text-center">
-            <img src="${category['image']}"  style="background-color: grey" class="rounded border">
-            <p class="font-weight-bold">${category["name"]}</p>
-            </div>
-            <br>
-            `
-        catgeoryList.append(categoryDiv)
+
+
+      render() {
+        this.element.innerText = this.name
+        this.element.id = `category-${this.id}`
+        return this.element
+      }
+
+      addToDom(){
+        Category.categoryContainer.append(this.render())
+        this.addListeners()
+      }
+
+      addListeners(){
+          this.element.addEventListener('click', this.setActiveCategory)
+      }
+
+      setActiveCategory = (e) => {
+        let filteredCategory 
+        Category.all.forEach(c => {
+            if(c.element === this.element && !this.active){
+                c.element.classList.add('activated')
+                c.active = true
+                filteredCategory = c
+            }else{
+                c.element.classList.remove('activated')
+                c.active = false
+            }
+
+            Meal.filterByCategory(filteredCategory)
+        }) 
     }
+
+    addToDropDown(){
+        const option = document.createElement('option')
+        option.value  = this.id 
+        option.innerText = this.name
+        dropdown.append(option)
+    }
+
+}
+
+
+    
