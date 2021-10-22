@@ -1,16 +1,3 @@
-// const mealList = document.getElementById("meal-list")
-// const mealForm = document.querySelector("#meal-form")
-// const nameInput = document.getElementById("meal-name")
-// const thumbInput = document.getElementById("meal-thumb")
-// const ingredientsInput = document.getElementById("meal-ingredients")
-// const instructionInput = document.getElementById("meal-instruction")
-
-// the major responsibilities for this class - 
-// (1) build out an Meal class
-// (2) remembering all the meals
-// (3) setting the properties of each meal
-// (4) the html we want to put on the DOM for each meal
-// (5) attch event listeners particular to each meal
 
 class Meal{
 
@@ -83,16 +70,6 @@ class Meal{
     }
 
 }
-
-//function renderMeal(meal) {
-//    const mealDiv = document.createElement("div")
-//    mealDiv.dataset["id"] = meal['id']
-//    mealDiv.id = `meal-div-${meal['id']}`
-//    renderMealDivHTML(mealDiv, meal)
-//    mealList.append(mealDiv)
-//    const mealDeleteBtn = mealDiv.querySelector(".delete")
-//    mealDiv.addEventListener("click", handleMealDivClick)
-//}
 
 
 function saveUpdatedMeal(saveBtn){
