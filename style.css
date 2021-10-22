@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+  }
+
+  .meal-div {
+    padding: 1.4rem;
+    background-color: white;
+}
+.meal-div img {
+    height: 150px;
+}
+
+body {
+  background-color: #EAEBEB;
+}
+
+  .center {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.meal-thumb {
+    width: 75%;
+}
+
+#meal-form {
+  background-color: black;
+  padding: 1.2rem;
+  color: white;
+}
