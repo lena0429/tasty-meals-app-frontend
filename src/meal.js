@@ -15,16 +15,37 @@ class Meal{
        this.instruction = instruction
        this.category_id = category_id
 
-       // remembering all the meal objects
-       // this respresents the current meal object
-       Meal.all.push(this)  
-
+       
        // setup the HTML element that will contain the meal
        this.element = document.createElement("div")  // mealDiv
        this.element.dataset["id"] = id
        this.element.id = `meal-div-${id}`
 
        this.element.addEventListener("click", this.handleMealDivClick)
+
+       // remembering all the meal objects
+       // this respresents the current meal object
+       Meal.all.push(this)  
+    }
+
+
+    // filter by category functionality
+    static filterByCategory(filteredCategory) {
+        // display only meals in the active category
+        // if no catgeory is active, display all
+        if(filteredCategory) {
+            for(const meal of Meal.all) {
+                if(meal.catgeoryId === parseInt(filteredCategory.id)) {
+                    meal.element.style.display = "";
+                } else {
+                    meal.element.style.display = "none"
+                }
+            }
+        } else {
+            for (const meal of Meal.all) {
+                meal.element.style.display = ""
+            }
+        }
     }
 
     // this is an arrow function b/c it is used as a callback in an event listener 

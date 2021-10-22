@@ -19,7 +19,7 @@
           <a class="nav-link" href="#meal-list">Meals <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#catgeory-list">Categories <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#category-list">Categories <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#meal-form">New Meal <span class="sr-only">(current)</span></a>
@@ -31,42 +31,55 @@
       </form>
     </div>
   </nav>
-  
+
   <br><br><br><br>
+  <!-------- Welcome Section ----->
+  <h1>Welcome to Tasty Meals App </h1>
+
+  <!-------filter -------------->
+  <div id="category-list" class="container center">     
+    <h3 class="text-info">Filter by Category</h3>
+    <div id="category-container">
+      <ul id="item-list"></ul>
+ </div>
+</div>
+
+<!-------All meals -------------->
   <div class="container center">   
-        <h2 class="text-center text-info">All Meals</h2>
+        <h2 class="text-center text-info">View Meals</h2>
         <div id="meal-list">
          
   </div>
-</div>  
-<br>
-    <div class="container center">     
-       <h2 class="text-center text-info">All Categories</h2>
-       <div id="catgeory-list" class="row">
-    </div>
- </div>
-   
-     
+</div> 
 
-    <div class="container">
-      <form id="meal-form">
-        <h3 class="text-info">Add a New Meal Recipe</h3>
-          <label for="meal-name">Name:</label>
-          <input type="text" name="name" id="meal-name"><br><br>
-          <label for="meal-thumb">Thumb URL:</label>
-          <input type="text" name="thumb" id="meal-thumb"><br><br>
-          <label for="meal-ingredients">Ingredients:</label>
-          <input type="text" name="ingredients" id="meal-ingredients"><br><br>
-          <label for="meal-instruction">Instrcution:</label>
-          <input type="text" name="instruction" id="meal-instruction"><br><br>
-          <input type="submit" value="Create" class="btn-sm btn-info">
-      </form>
-      <br><br>
-    </div>
-    
+<!-------new meal form -------------->
+<div class="container">
+  <form id="meal-form">
+    <h3 class="text-info">Add a New Meal Recipe</h3>
+      <label for="meal-name">Name:</label>
+      <input type="text" name="name" id="meal-name"><br><br>
+      <label for="meal-thumb">Thumb URL:</label>
+      <input type="text" name="thumb" id="meal-thumb"><br><br>
+      <label for="meal-ingredients">Ingredients:</label>
+      <input type="text" name="ingredients" id="meal-ingredients"><br><br>
+      <label for="meal-instruction">Instrcution:</label>
+      <input type="text" name="instruction" id="meal-instruction"><br><br>
+      <label for="cat-dropdown">Category:</label>
+       <input type="text" name="category" id="category-name">
+       <select name="category_id" id="cat-dropdown">
+
+       </select><br><br>
+      <input type="submit" value="Create" class="btn-sm btn-info">
+  </form>
+  <br><br>
+</div>
+
+<br>
+   
     <script type="text/javascript" src="src/category.js"></script>
     <script type="text/javascript" src="src/meal.js"></script>
     <script type="text/javascript" src="src/mealApi.js"></script>
+    <script type="text/javascript" src="src/categoryApi.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
