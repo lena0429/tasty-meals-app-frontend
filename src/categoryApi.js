@@ -10,8 +10,6 @@ class CategoryApi{
         .then(json => {
             json.forEach(c => {
                 const frontendC = new Category(c)
-                console.log(frontendC)
-    
                 frontendC.addToDom()
                 frontendC.addToDropDown()  
             })

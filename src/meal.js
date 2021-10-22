@@ -6,14 +6,14 @@ class Meal{
 
     // similar to initialize method in Ruby
     // invoke new method to trigger constructor to run in the console
-    constructor({id, name, thumb, ingredients, instruction, category_id}) {
+    constructor({id, name, thumb, ingredients, instruction, categoryId}) {
        // setting the properties of each meal
        this.id = id
        this.name = name
        this.thumb = thumb
        this.ingredients = ingredients
        this.instruction = instruction
-       this.category_id = category_id
+       this.categoryId = categoryId
 
        
        // setup the HTML element that will contain the meal
@@ -35,7 +35,7 @@ class Meal{
         // if no catgeory is active, display all
         if(filteredCategory) {
             for(const meal of Meal.all) {
-                if(meal.catgeoryId === parseInt(filteredCategory.id)) {
+                if(meal.categoryId === parseInt(filteredCategory.id)) {
                     meal.element.style.display = "";
                 } else {
                     meal.element.style.display = "none"

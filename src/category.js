@@ -10,7 +10,6 @@ class Category {
         this.active = false
 
         this.element = document.createElement("button")
-        this.element = 
 
         Category.all.push(this)
     }

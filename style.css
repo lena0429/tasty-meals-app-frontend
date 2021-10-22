@@ -28,3 +28,26 @@ body {
   padding: 1.2rem;
   color: white;
 }
+
+button {
+  background-color: white;
+  border-radius: 0px 4px 4px 0px;
+  border: 1px solid #198754;
+  color: #198754;
+  padding: 10px 8px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.activated {
+  background-color:#0dcaf0;
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid;
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+}
