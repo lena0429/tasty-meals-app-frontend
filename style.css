@@ -32,8 +32,8 @@ body {
 button {
   background-color: white;
   border-radius: 0px 4px 4px 0px;
-  border: 1px solid #198754;
-  color: #198754;
+  border: 1px solid #219DAD;
+  color: #219DAD;
   padding: 10px 8px;
   text-align: center;
   display: inline-block;
@@ -42,12 +42,8 @@ button {
 }
 
 .activated {
-  background-color:#0dcaf0;
+  background-color:#219DAD;
   border-radius: 0px 5px 5px 0px;
-  border: 1px solid;
+  border: 1px solid #219DAD;
   color: white;
-}
-
-.btn:hover {
-  background-color: black;
 }

@@ -11,7 +11,7 @@
 <body>
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Tasty Meals!</a>
+    <a class="navbar-brand" href="#welcome">Tasty Meals!</a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -26,7 +26,7 @@
         </li>
       </ul>
       <form id="search-form" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search for a Meal..." aria-label="Search">
         <button id="search-button" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -34,19 +34,24 @@
 
   <br><br><br><br>
   <!-------- Welcome Section ----->
-  <h1>Welcome to Tasty Meals App </h1>
-
+  <div id="welcome" class="container text-center">
+  <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="border img-fluid float-left" >
+  <br><br><br><br>
+  <h1 class="text-info">Welcome to Tasty Meals App </h1>
+  <p class="font-weight-bold font-italic" style="margin:20px">Align images with the helper float classes or text alignment classes. block-level images can be centered using the .mx-auto margin utility class. Amazingly Quick Dinners For Busy Weeknights. Amazingly Quick Dinners For Busy Weeknights. Amazingly Quick Dinners For Busy Weeknights</p>
+  </div>
+  <br><br><br><br>
   <!-------filter -------------->
   <div id="category-list" class="container center">     
-    <h3 class="text-info">Filter by Category</h3>
+    <h3 class="text-info">Meals Filter by Category</h3>
     <div id="category-container">
       <ul id="item-list"></ul>
  </div>
 </div>
+<br><br>
 
 <!-------All meals -------------->
   <div class="container center">   
-        <h2 class="text-center text-info">View Meals</h2>
         <div id="meal-list">
          
   </div>
@@ -65,7 +70,7 @@
       <label for="meal-instruction">Instrcution:</label>
       <input type="text" name="instruction" id="meal-instruction"><br><br>
       <label for="cat-dropdown">Category:</label>
-       <input type="text" name="category" id="category-name">
+       
        <select name="category_id" id="cat-dropdown">
 
        </select><br><br>

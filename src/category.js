@@ -3,10 +3,9 @@ class Category {
     static all = []
     static categoryContainer = document.getElementById("category-container")
 
-    constructor({id, name, image}) {
+    constructor({id, name}) {
         this.id = id
         this.name = name
-        this.image = image
         this.active = false
 
         this.element = document.createElement("button")
