@@ -30,14 +30,16 @@ class Meal{
 
 
     // filter by category functionality
+    // display only the meals in the active category
+    // display all if no categories are active
     static filterByCategory(filteredCategory) {
-        // display only meals in the active category
-        // if no catgeory is active, display all
         if(filteredCategory) {
             for(const meal of Meal.all) {
                 if(meal.categoryId === parseInt(filteredCategory.id)) {
+                    // unhide element
                     meal.element.style.display = "";
                 } else {
+                    // hide element 
                     meal.element.style.display = "none"
                 }
             }
@@ -130,61 +132,5 @@ class Meal{
         
         
 
-
     }
 
-//function saveUpdatedMeal(saveBtn){
-//    const div = saveBtn.parentElement
-//    const id = div.dataset.id
-//    const nameInput = div.querySelector(".edit-name")
-//    const ingredientsInput = div.querySelector(".edit-ingredients")
-//    const instructionInput = div.querySelector(".edit-instruction")
-//
-//    // get ready to send a patch request
-//    // configure the object
-//    //make our params hash
-//   
-//    const mealInfo = {
-//        name: nameInput.value,
-//        ingredients: ingredientsInput.value,
-//        instruction: instructionInput.value
-//        }
-//      
-//        const configObj = {
-//            method: "PATCH",
-//            headers: {
-//                "Content-Type": "application/json",
-//                Accept: "application/json" 
-//            },
-//            body: JSON.stringify(mealInfo)
-//        }
-//
-//        // pessimistic rendering
-//        fetch(`http://127.0.0.1:3000/meals/${id}`, configObj)
-//      .then(resp => resp.json())
-//      .then(json => {
-//          // use this json data to update DOM
-//          renderMealDivHTML(div, json) 
-//      })
-//}
-
-
-
-
-// optimistic rendering
-// function deleteMeal(e) {
-//     e.target.parentElement.remove()  // remove it before the fetch request
-//     const id = e.target.dataset.id
-// 
-//     const configObj = {
-//         method: "DELETE",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Accept: "application/json" 
-//         }
-//     }
-// 
-//     fetch(`http://127.0.0.1:3000/meals/${id}`, configObj)
-//       .then(resp => resp.json())
-//       .then(json => alert(json.message))
-// }
