@@ -93,6 +93,11 @@ class Meal{
         // Meal.mealList.append(this.render())
     }
 
+    static attachAll() {
+        Meal.all.forEach((meal) => {
+            meal.attachToDom()
+        })
+    }
 
     createEditFields = (editBtn) => {
         const mealDiv = editBtn.parentElement
@@ -129,7 +134,6 @@ class Meal{
             this.element.remove()  // optimistic rendering - remove it before the fetch request
             mealApi.deleteMeal(this.id)  
         }     
-        
         
 
     }

@@ -30,29 +30,35 @@ function handleSubmit(e) {
 
 searchForm.addEventListener("submit", handleSearchClick)
 
-function handleSearchClick(e){
-    e.preventDefault()
-    const searchTerm = searchInput.value
-    let mealResult = []
-    Meal.all.map((meal) => {
-        if(meal.ingredients.split(", ").includes(`${searchTerm}`) === true) {
-            mealResult.push(meal)
-        }
-        })
+    function handleSearchClick(e){
+        e.preventDefault()
         mainDiv.style.display = "none"
-        for(const meal of mealResult) {
-           meal.render()
-           resultsContainer.append(meal.element)
+        const searchTerm = searchInput.value
+        const searchString = titleCase(searchTerm)
+                let mealResult = []
+                Meal.all.map((meal) => {
+                   if(meal.name.split(" ").includes(`${searchString}`) === true) {
+                      mealResult.push(meal)
+                   }
+                 })
+            for(const meal of mealResult) {
+               meal.render()
+               resultsContainer.append(meal.element)
+    
+            }
+            e.target.reset()
+    }
 
-        }
-        e.target.reset()
-}
+    resetButton.addEventListener("click", function() {
+        resultsContainer.innerHTML = ""
+        mainDiv.style.display = ""
+        Meal.attachAll()
+        debugger
+    })
 
-resetButton.addEventListener("click", handleReset)
+    function titleCase(string) {
+        return string[0].toUpperCase() + string.slice(1)
+    }
 
-function handleReset(e) {
-    resultsContainer.innerHTML = ""
-    mainDiv.style.display = ""
-}
 
 
