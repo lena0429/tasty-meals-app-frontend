@@ -10,6 +10,11 @@ const ingredientsInput = document.getElementById("meal-ingredients")
 const instructionInput = document.getElementById("meal-instruction")
 const dropdown = document.getElementById('cat-dropdown')
 const catNameInput = document.getElementById("category-name")
+const resetButton =document.getElementById("reset-button")
+const searchInput = document.getElementById("search-input")
+const searchForm = document.getElementById("search-form")
+const mainDiv = document.getElementById("main-div")
+const resultsContainer = document.getElementById("results-container")
 
 mealApi.fetchAllMeals()
 
@@ -22,3 +27,32 @@ function handleSubmit(e) {
     mealApi.createMeal()
     e.target.reset()
 }
+
+searchForm.addEventListener("submit", handleSearchClick)
+
+function handleSearchClick(e){
+    e.preventDefault()
+    const searchTerm = searchInput.value
+    let mealResult = []
+    Meal.all.map((meal) => {
+        if(meal.ingredients.split(", ").includes(`${searchTerm}`) === true) {
+            mealResult.push(meal)
+        }
+        })
+        mainDiv.style.display = "none"
+        for(const meal of mealResult) {
+           meal.render()
+           resultsContainer.append(meal.element)
+
+        }
+        e.target.reset()
+}
+
+resetButton.addEventListener("click", handleReset)
+
+function handleReset(e) {
+    resultsContainer.innerHTML = ""
+    mainDiv.style.display = ""
+}
+
+

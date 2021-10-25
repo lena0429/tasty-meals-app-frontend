@@ -9,6 +9,7 @@ class Category {
         this.active = false
 
         this.element = document.createElement("button")
+        this.element.classList.add("cat", "btn", "btn-sm", "btn-info")
 
         Category.all.push(this)
     }
@@ -16,7 +17,6 @@ class Category {
     meals(){
         return Meal.all.filter((meal) => meal.categoryId == this.id)
     }
-
 
       render() {
         this.element.innerText = this.name

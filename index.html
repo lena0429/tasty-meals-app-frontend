@@ -26,13 +26,20 @@
         </li>
       </ul>
       <form id="search-form" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search for a Meal..." aria-label="Search">
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search for a Meal..." aria-label="Search">
         <button id="search-button" class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>
+      <button id="reset-button" class="btn btn-outline-info my-2 my-sm-0" type="submit">Reset</button>
     </div>
   </nav>
 
   <br><br><br><br>
+  <div id="results-container" class="container">
+    <ul id="search-list">
+    </ul>
+  </div>
+
+  <div id="main-div">
   <!-------- Welcome Section ----->
   <div id="welcome" class="container text-center">
   <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="border img-fluid float-left" >
@@ -56,6 +63,7 @@
          
   </div>
 </div> 
+</div>
 
 <!-------new meal form -------------->
 <div class="container">
