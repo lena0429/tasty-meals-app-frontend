@@ -8,13 +8,11 @@ Please visit the live site here: https://vigorous-johnson-fa497d.netlify.app/
 Please find the JavaScript frontend Repo here: https://github.com/lena0128/tasty-meals-app-backend
 
 # Frontend Installation and Usage
-Clone this repo to your local computer
+* Clone this repo to your local computer
 
-Get to the directory
+* Get to the directory
 
-In your terminal:
-
-Run `open index.html`
+* In your terminal: run `open index.html`
 
 # Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/lena0128/tasty-meals-app-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
