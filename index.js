@@ -1,5 +1,5 @@
 
-const port = "http://127.0.0.1:3000"
+const port = "https://floating-temple-36360.herokuapp.com"
 const mealApi = new MealApi(port)
 const categoryApi = new CategoryApi(port)
 const list = document.getElementById("item-list")
@@ -39,21 +39,19 @@ searchForm.addEventListener("submit", handleSearchClick)
                 Meal.all.map((meal) => {
                    if(meal.name.split(" ").includes(`${searchString}`) === true) {
                       mealResult.push(meal)
-                   }
-                 })
-            for(const meal of mealResult) {
-               meal.render()
-               resultsContainer.append(meal.element)
-    
-            }
-            e.target.reset()
-    }
+                      for(const meal of mealResult) {
+                        meal.render()
+                        resultsContainer.append(meal.element)
+                        e.target.reset()
+                      }
+                 } 
+    })
+}
 
     resetButton.addEventListener("click", function() {
         resultsContainer.innerHTML = ""
         mainDiv.style.display = ""
         Meal.attachAll()
-        debugger
     })
 
     function titleCase(string) {
