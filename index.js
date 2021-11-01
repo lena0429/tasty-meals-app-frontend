@@ -1,5 +1,5 @@
 
-const port = "https://floating-temple-36360.herokuapp.com"
+const port = "https://floating-temple-36360.herokuapp.com/"
 const mealApi = new MealApi(port)
 const categoryApi = new CategoryApi(port)
 const list = document.getElementById("item-list")
@@ -30,44 +30,16 @@ function handleSubmit(e) {
 
 searchForm.addEventListener("submit", handleSearchClick)
 
-    function handleSearchClick(e){
-        e.preventDefault()
-        const searchTerm = searchInput.value
-           if (searchTerm.length !== 0) {
-            let mealResult = []
-            const searchString = titleCase(searchTerm)
-            mainDiv.style.display = "none"
-            const homeButton = document.createElement("button")
-            homeButton.classList.add("btn-lg", "btn-info")
-                homeButton.innerText = "Back to Home"
-                resultsContainer.append(homeButton)
-                homeButton.addEventListener("click", backToHome)
-            Meal.all.map((meal) => {
-                if(meal.name.split(" ").includes(`${searchString}`) === true) {
-                    mealResult.push(meal)
-                        for(const meal of mealResult) {
-                        meal.render()
-                        resultsContainer.append(meal.element)
-                        }
-                }
-            })
-            } else {
-                alert("Please input someting.");
-                
-    }
+function handleSearchClick(e){
+    e.preventDefault()
+    Meal.searchName(searchInput)
     e.target.reset()
 }
     
-
-    function backToHome() {
-        resultsContainer.innerHTML = ""
-        mainDiv.style.display = ""
-        Meal.attachAll()
-    }
-
-    function titleCase(string) {
-        return string[0].toUpperCase() + string.slice(1)
-    }
+// helper method
+function titleCase(string) {
+    return string[0].toUpperCase() + string.slice(1)
+}
 
 
 

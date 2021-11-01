@@ -4,8 +4,7 @@ class Meal{
     static all = []
     static mealList = document.getElementById("meal-list")
 
-    // similar to initialize method in Ruby
-    // invoke new method to trigger constructor to run in the console
+    // similar to the initialize method in Ruby
     constructor({id, name, thumb, ingredients, instruction, categoryId}) {
        // setting the properties of each meal
        this.id = id
@@ -14,24 +13,23 @@ class Meal{
        this.ingredients = ingredients
        this.instruction = instruction
        this.categoryId = categoryId
-
        
        // setup the HTML element that will contain the meal
-       this.element = document.createElement("div")  // mealDiv
+       this.element = document.createElement("div") 
        this.element.dataset["id"] = id
        this.element.id = `meal-div-${id}`
 
        this.element.addEventListener("click", this.handleMealDivClick)
 
        // remembering all the meal objects
-       // this respresents the current meal object
+       // `this` respresents the current meal object
        Meal.all.push(this)  
     }
 
 
-    // filter by category functionality
+    // "filter by category" functionality
     // display only the meals in the active category
-    // display all if no categories are active
+    // display all if no category is active, similar as uncheck
     static filterByCategory(filteredCategory) {
         if(filteredCategory) {
             for(const meal of Meal.all) {
@@ -50,10 +48,9 @@ class Meal{
         }
     }
 
-    // this is an arrow function b/c it is used as a callback in an event listener 
+    // this is an arrow function because it is used as a callback function in the event listener 
     handleMealDivClick = (e) => {
-        // console.log(this) => the frontend meal object 
-        // debugger
+         // console.log(this) => the specified object
         if(e.target.innerText === "Edit") {
            // change the button to display "save"
             e.target.innerText = "Save"
@@ -101,7 +98,6 @@ class Meal{
 
     createEditFields = (editBtn) => {
         const mealDiv = editBtn.parentElement
-        // let newUrl = mealDiv.children[0]
         let newName = mealDiv.children[1]
         let newIngredients = mealDiv.children[3]
         let newInstruction = mealDiv.children[5]
@@ -119,9 +115,6 @@ class Meal{
 
 
         saveUpdatedMeal = () => {
-            console.log(this)
-            // const div = saveBtn.parentElement
-            // const id = div.dataset.id
             this.name = this.element.querySelector(".edit-name").value
             this.ingredients = this.element.querySelector(".edit-ingredients").value
             this.instruction = this.element.querySelector(".edit-instruction").value
@@ -129,12 +122,49 @@ class Meal{
             mealApi.sendPatch(this)
         }
 
-
+        
         deleteMeal = (e) => {
             this.element.remove()  // optimistic rendering - remove it before the fetch request
             mealApi.deleteMeal(this.id)  
         }     
+
+        // "search" functionality
+        static searchName(searchInput) {
+            let searchTerm = searchInput.value
+            if (searchTerm.length !== 0) {
+                let mealResult = []
+                const searchString = titleCase(searchTerm)
+                mainDiv.style.display = "none"
+                    const homeButton = document.createElement("button")
+                    homeButton.classList.add("btn-lg", "btn-info")
+                    homeButton.innerText = "Back to Home"
+                    resultsContainer.append(homeButton)
+                    homeButton.addEventListener("click", this.backToHome)
+                    debugger
+                Meal.all.map((meal) => {
+                    if(meal.name.split(" ").includes(`${searchString}`) === true) {
+                        mealResult.push(meal)
+                            for(const meal of mealResult) {
+                            meal.render()
+                            resultsContainer.append(meal.element)
+                            }
+                    }
+                })
+                } else {
+                    alert("Please input someting.");
+
+        }
+    }
+
+    static backToHome() {
+        // console.log(this) => the Meal class
+        resultsContainer.innerHTML = ""
+        mainDiv.style.display = ""
+        Meal.attachAll()
+    }
+
+}
         
 
-    }
+    
 

@@ -47,12 +47,6 @@ class MealApi {
               .then(data => {
                   const newMeal = new Meal(data)
                   newMeal.attachToDom()
-
-                  if(!Category.all.find((c) => c.id == newMeal.categoryId)){
-                      let categoryObj = new Category(c)
-                      categoryObj.addToDom()
-                      categoryObj.addToDropDown()
-                  }
               })
           }
 
@@ -102,6 +96,7 @@ class MealApi {
               .then(resp => resp.json())
               .then(json => alert(json.message))
         }
+
 
 }
           
