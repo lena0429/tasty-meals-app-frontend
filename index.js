@@ -1,5 +1,5 @@
 
-const port = "https://floating-temple-36360.herokuapp.com"
+const port = "http://127.0.0.1:3000"
 const mealApi = new MealApi(port)
 const categoryApi = new CategoryApi(port)
 const list = document.getElementById("item-list")
@@ -15,6 +15,7 @@ const searchInput = document.getElementById("search-input")
 const searchForm = document.getElementById("search-form")
 const mainDiv = document.getElementById("main-div")
 const resultsContainer = document.getElementById("results-container")
+
 
 mealApi.fetchAllMeals()
 
@@ -32,27 +33,38 @@ searchForm.addEventListener("submit", handleSearchClick)
 
     function handleSearchClick(e){
         e.preventDefault()
-        mainDiv.style.display = "none"
         const searchTerm = searchInput.value
-        const searchString = titleCase(searchTerm)
-                let mealResult = []
-                Meal.all.map((meal) => {
-                   if(meal.name.split(" ").includes(`${searchString}`) === true) {
-                      mealResult.push(meal)
-                      for(const meal of mealResult) {
+           if (searchTerm.length !== 0) {
+            let mealResult = []
+            const searchString = titleCase(searchTerm)
+            mainDiv.style.display = "none"
+            const homeButton = document.createElement("button")
+            homeButton.classList.add("btn-lg", "btn-info")
+                homeButton.innerText = "Back to Home"
+                resultsContainer.append(homeButton)
+                homeButton.addEventListener("click", backToHome)
+            Meal.all.map((meal) => {
+                if(meal.name.split(" ").includes(`${searchString}`) === true) {
+                    mealResult.push(meal)
+                        for(const meal of mealResult) {
                         meal.render()
                         resultsContainer.append(meal.element)
-                        e.target.reset()
-                      }
-                 } 
-    })
+                        }
+                }
+            })
+            } else {
+                alert("Please input someting.");
+                
+    }
+    e.target.reset()
 }
+    
 
-    resetButton.addEventListener("click", function() {
+    function backToHome() {
         resultsContainer.innerHTML = ""
         mainDiv.style.display = ""
         Meal.attachAll()
-    })
+    }
 
     function titleCase(string) {
         return string[0].toUpperCase() + string.slice(1)
