@@ -1,5 +1,5 @@
 
-const port = "http://127.0.0.1:3000"
+const port = "https://floating-temple-36360.herokuapp.com"
 const mealApi = new MealApi(port)
 const categoryApi = new CategoryApi(port)
 const list = document.getElementById("item-list")
@@ -10,7 +10,6 @@ const ingredientsInput = document.getElementById("meal-ingredients")
 const instructionInput = document.getElementById("meal-instruction")
 const dropdown = document.getElementById('cat-dropdown')
 const catNameInput = document.getElementById("category-name")
-const resetButton =document.getElementById("reset-button")
 const searchInput = document.getElementById("search-input")
 const searchForm = document.getElementById("search-form")
 const mainDiv = document.getElementById("main-div")
