@@ -1,6 +1,8 @@
 # Tasty Meals App
 The Tasty Meals App is a SPA application with a Ruby API backend and a JavaScript forntend. Besides reading meal recipes from around the world, this app allows users to create, update or delete their unique recipes. Users can also search a meal by name and filter meals by category. Enjoy!
 
+The data I used is from this site: https://www.themealdb.com/api.php
+
 # Live Site
 Please visit the live site here: https://vigorous-johnson-fa497d.netlify.app/
 
