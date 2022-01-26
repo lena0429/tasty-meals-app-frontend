@@ -1,5 +1,5 @@
 
-const port = "https://floating-temple-36360.herokuapp.com/"
+const port = "https://calm-reef-47932.herokuapp.com"
 const mealApi = new MealApi(port)
 const categoryApi = new CategoryApi(port)
 const list = document.getElementById("item-list")
