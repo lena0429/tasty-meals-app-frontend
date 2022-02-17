@@ -7,7 +7,7 @@ The Tasty Meals App is a SPA application with a Ruby API backend and a JavaScrip
 The data I used is from this site: https://www.themealdb.com/api.php
 
 # Demo
-Please watch the demo <a href="https://youtu.be/dzcYoUgh3GU">here</a>/
+Please watch the demo <a href="https://youtu.be/dzcYoUgh3GU">here</a>
 
 # Live Site
 Please visit the live site here: https://vigorous-johnson-fa497d.netlify.app/
